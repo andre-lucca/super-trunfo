@@ -116,11 +116,11 @@ int main() {
     // Após a leitura dos dados, calcula a densidade populacional e o PIB
     // per capita de cada cidade.
 
-    densidade_populacional1 = populacao1 / area1;
-    densidade_populacional2 = populacao2 / area2;
+    densidade_populacional1 = (float) populacao1 / area1;
+    densidade_populacional2 = (float) populacao2 / area2;
 
-    pib_per_capita1 = pib1 / populacao1;
-    pib_per_capita2 = pib2 / populacao2;
+    pib_per_capita1 = (float) pib1 / populacao1;
+    pib_per_capita2 = (float) pib2 / populacao2;
 
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
