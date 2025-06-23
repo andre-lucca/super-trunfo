@@ -70,7 +70,7 @@ int main() {
 
     // Solicita a população da cidade1.
     printf("\nInforme o número de habitantes da cidade1: ");
-    scanf("%d", &populacao1);
+    scanf("%ld", &populacao1);
 
     // Solicita a área da cidade1.
     printf("\nInforme a área em km² da cidade1: ");
@@ -104,7 +104,7 @@ int main() {
 
     // Solicita a população da cidade2.
     printf("\nInforme o número de habitantes da cidade2: ");
-    scanf("%d", &populacao2);
+    scanf("%ld", &populacao2);
 
     // Solicita a área da cidade2.
     printf("\nInforme a área em km² da cidade2: ");
@@ -161,6 +161,7 @@ int main() {
 
     // Comparação de cartas:
 
+    /*
     printf("Comparação de cartas:\n");
     printf("População: Carta %d venceu\n", populacao1 > populacao2);
     printf("Área: Carta %d venceu\n", area1 > area2);
@@ -168,7 +169,15 @@ int main() {
     printf("Número de pontos turísticos: Carta %d venceu\n", pontos_turisticos1 > pontos_turisticos2);
     printf("Densidade populacional: Carta %d venceu\n", densidade_populacional1 < densidade_populacional2);
     printf("PIB per capita: Carta %d venceu\n", pib_per_capita1 > pib_per_capita2);
+    */
 
+    // Verifica a maior população
+
+    if (populacao1 > populacao2) {
+	printf("Carta 1 venceu!\n");
+    } else {
+	printf("Carta 2 venceu!\n");
+    }
 
     return 0;
 }
