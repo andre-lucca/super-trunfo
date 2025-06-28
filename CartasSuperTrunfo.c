@@ -26,7 +26,7 @@ int main() {
       pib_per_capita2 = 0.0;
       //super_poder1 = 0.0,
       //super_poder2 = 0.0;
-
+    
     densidade_populacional1 = (float) populacao1 / area1;
     densidade_populacional2 = (float) populacao2 / area2;
 
@@ -36,53 +36,119 @@ int main() {
     //super_poder1 = (float) populacao1 + area1 + pib1 + pontos_turisticos1 + pib_per_capita1 + (1 / densidade_populacional1);
     //super_poder2 = (float) populacao2 + area2 + pib2 + pontos_turisticos2 + pib_per_capita2 + (1 / densidade_populacional2);
 
-    int opcao = 0;
-    float valor1, valor2;
+    int atributo_escolhido1 = 0;
+    int atributo_escolhido2 = 0;
 
-    printf("Bem vindo a Super Trunfo!\n");
-    printf("Escolha qual atributo você quer comparar:\n");
+    printf("Escolha o primeiro atributo de comparação:\n");
     printf("1. População\n");
-    printf("2. Área\n");
-    printf("3. PIB\n");
-    scanf("%d", &opcao);
+    printf("2. Pontos turísticos\n");
+    printf("3. Área\n");
+    printf("4. PIB\n");
+    scanf("%d", &atributo_escolhido1);
+    
+    printf("Escolha o segundo atributo de comparação:\n");
+    (atributo_escolhido1 != 1) ? printf("1. População\n") : 0;
+    (atributo_escolhido1 != 2) ? printf("2. Pontos turísticos\n") : 0;
+    (atributo_escolhido1 != 3) ? printf("3. Área\n") : 0;
+    (atributo_escolhido1 != 4) ? printf("4. PIB\n") : 0;
+    scanf("%d", &atributo_escolhido2);
 
-    switch (opcao) {
-	case 1:
-	  valor1 = (float) populacao1;
-	  valor2 = (float) populacao2;
-	  break;
+    if (atributo_escolhido1 < 1 || atributo_escolhido1 > 4) {
+      printf("Atributo inválido");
 
-	case 2:
-	   valor1 = area1;
-	   valor2 = area2;
-	  break;
-
-	case 3:
-	   valor1 = pib1;
-	   valor2 = pib2;
-	  break;
-
-	default:
-	  printf("Opção inválida.");
-	  opcao = 0;
+      return 0;
     }
 
-    if (opcao == 0) {
-	return 0;
+    if (atributo_escolhido2 < 1 || atributo_escolhido2 > 4) {
+      printf("Atributo inválido");
+
+      return 0;
     }
 
-    printf("%s\n", cidade1);
-    printf("%s\n", cidade2);
-    printf("Atribudo escolhido: %d\n", opcao);
-    printf("Carta1: %d\n", (int) valor1);
-    printf("Carta2: %d\n", (int) valor2);
+    int pontos_carta1 = 0;
+    int pontos_carta2 = 0;
 
-    if (valor1 > valor2) {
-      printf("Carta 1 venceu!");
-    } else if (valor2 > valor1) {
-      printf("Carta 2 venceu!");
+    printf("Cidade da carta 1: %s\n", cidade1);
+    printf("Cidade da carta 2: %s\n", cidade2);
+    printf("Atributos escolhidos: %d e %d\n", atributo_escolhido1, atributo_escolhido2);
+
+    switch (atributo_escolhido1) {
+      case 1:
+	if (populacao1 == populacao2) {
+	  break;
+	}
+
+	populacao1 > populacao2 ? pontos_carta1++ : pontos_carta2++;
+	break;
+
+      case 2:
+	if (pontos_turisticos1 == pontos_turisticos2) {
+	  break;
+	}
+
+	pontos_turisticos1 > pontos_turisticos2 ? pontos_carta1++ : pontos_carta2++;
+	break;
+
+      case 3:
+	if (area1 == area2) {
+	  break;
+	}
+
+	area1 > area2 ? pontos_carta1++ : pontos_carta2++;
+	break;
+
+      case 4:
+	if (pib1 == pib2) {
+	  break;
+	}
+
+	pib1 > pib2 ? pontos_carta1++ : pontos_carta2++;
+	break;
+    }
+
+    switch (atributo_escolhido2) {
+      case 1:
+	if (populacao1 == populacao2) {
+	  break;
+	}
+
+	populacao1 > populacao2 ? pontos_carta1++ : pontos_carta2++;
+	break;
+
+      case 2:
+	if (pontos_turisticos1 == pontos_turisticos2) {
+	  break;
+	}
+
+	pontos_turisticos1 > pontos_turisticos2 ? pontos_carta1++ : pontos_carta2++;
+	break;
+
+      case 3:
+	if (area1 == area2) {
+	  break;
+	}
+
+	area1 > area2 ? pontos_carta1++ : pontos_carta2++;
+	break;
+
+      case 4:
+	if (pib1 == pib2) {
+	  break;
+	}
+
+	pib1 > pib2 ? pontos_carta1++ : pontos_carta2++;
+	break;
+    }
+
+    printf("Pontos da Carta 1: %d\n", pontos_carta1);
+    printf("Pontos da Carta 2: %d\n", pontos_carta2);
+
+    if (pontos_carta1 > pontos_carta2) {
+      printf("Carta 1 venceu!\n");
+    } else if (pontos_carta2 > pontos_carta1) {
+      printf("Carta 2 venceu!\n");
     } else {
-      printf("Empate!");
+      printf("Empate!\n");
     }
 
     return 0;
